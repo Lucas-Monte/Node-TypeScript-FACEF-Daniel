@@ -24,7 +24,7 @@ export async function findById(id: number) {
 }
 
 export async function update(id:number, data: UpdateTaskDTO) {
-    await findById(id);
+    await findById(id)
     return taskRepository.update(id, data);
 }
 
