@@ -3,12 +3,15 @@ import { CreateTaskDTO } from "../types/Task"
 import { UpdateTaskDTO } from "../types/Task"
 
 export function findAll() {
-    return prisma.task.findMany();
+    return prisma.task.findMany({
+        include: { Category: true }
+    });
 }
 
 export function findById(id: number) {
     return prisma.task.findUnique({
-        where: { id }
+        where: { id },
+        include: { Category: true },
     });
 }
 
